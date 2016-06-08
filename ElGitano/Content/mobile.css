@@ -1,0 +1,174 @@
+@media only screen and (min-width: 481px) {
+
+	.gridContainer {
+		width: 98%;
+		padding-left: 0.75%;
+		padding-right: 0.75%;
+		clear: none;
+		float: none;
+		margin-left: auto;
+	}
+	
+	.masNotas {
+		width: 98%;
+		padding-left: 0.75%;
+		padding-right: 0.75%;
+		clear: none;
+		float: none;
+		margin-left: auto;
+	}
+	
+	#div1 {
+	}
+	
+	.zeroMargin_tablet {
+		margin-left: 0;
+	
+	}
+	
+	.hide_tablet {
+		display: none;
+	}
+.chico{
+	max-width:728px;
+}
+}
+
+@media only screen and (min-width: 880px) {
+
+	.gridContainer {
+		width: 96%;
+		max-width: 1200px;
+		padding-left: 0.75%;
+		padding-right: 0.75%;
+		margin: auto;
+		clear: none;
+		float: none;
+		margin-left: auto;
+	}
+	
+	.masNotas {
+		width: 96%;
+		max-width: 742px;
+		padding-left: 0.75%;
+		padding-right: 0.75%;
+		margin: auto;
+		clear: none;
+		float: none;
+		margin-left: auto;
+	}
+	
+
+	#div1 {
+	
+	}
+	
+	.zeroMargin_desktop {
+		margin-left: 0;
+	}
+	
+	.hide_desktop {
+		display: none;
+	}
+	
+#wrapper_seccion{
+	margin-bottom:-2px;
+}
+
+}
+
+
+@media only screen and (max-width: 880px) {
+
+	.destacado_titulo {
+		font-size: 1.6em;
+		line-height:1.4em;
+
+	}
+	#column, #column2 {
+		width: 48%;
+		margin:1%;
+
+	}
+	#column2 {
+		width: 48%;
+		margin:1%;
+
+	}	
+
+	#fecha{	
+		position:absolute;
+		bottom:0;
+	}
+#publi_728x90{
+	display:none;
+	}
+	.titulo_art2{
+		font-size: 16px; 
+		line-height:22px;
+
+	}
+
+	article > div {
+		height:75px;
+
+	}
+}
+
+
+@media only screen and (max-width: 481px) {
+	#wrapper_destacado_1{
+	display:none;
+}
+	
+
+	
+    .panel {
+      width:140px;
+
+    }
+	  
+	#column{
+		width: 100%;
+		margin:0%;
+		margin-bottom:5px;
+		}
+
+	
+article > div {
+	height:auto;
+}
+		
+	
+
+
+h1 { 
+	text-align:left;
+	color: #222;
+	font-family: 'Raleway', sans-serif;
+	font-size: 20px;
+	line-height:28px;
+	font-weight:800;
+	margin-bottom:20px;
+}
+h2 { 
+	margin-top:-5px;
+}
+
+.fecha{	
+	font-size: 13px;
+}
+.titulo_art2{
+	font-size: 16px; 
+	line-height:22px;
+
+}
+
+
+.hide480{
+	display:none;
+}
+}
+
+
+/* 769, 481 */

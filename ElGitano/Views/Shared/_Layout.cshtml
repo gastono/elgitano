@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+   
+</head>
+<body>
+    <!-- menu vertical -->
+    <nav id="menu" class="left">
+        <ul>
+            <li><a href="#" class="active"><i class="fa fa-home"></i>Inicio</a></li>
+            <li><a href="#"><i class="fa fa-info-circle"></i>Acerca de</a></li>
+            <li>
+                <a href="#"><i class="fa fa-laptop"></i>Categorías <i class="fa fa-caret-down"></i></a>
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+
+                </ul>
+            </li>
+            <li><a href="#"><i class="fa fa-phone"></i>Contacto</a></li>
+        </ul>
+        <a href="#" id="showmenu"> <i class="fa fa-bars"></i> </a>
+    </nav>
+    <div id="header">
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
