@@ -126,6 +126,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apis\HomeApiController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -153,8 +154,13 @@
     <Compile Include="Migrations\201606080353298_usuario.Designer.cs">
       <DependentUpon>201606080353298_usuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606100306465_producto.cs" />
+    <Compile Include="Migrations\201606100306465_producto.Designer.cs">
+      <DependentUpon>201606100306465_producto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ElGitanoContext.cs" />
+    <Compile Include="Models\Producto.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -188,6 +194,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="ViewModels\HomeViewModel.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -215,6 +222,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201606080353298_usuario.resx">
       <DependentUpon>201606080353298_usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606100306465_producto.resx">
+      <DependentUpon>201606100306465_producto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
