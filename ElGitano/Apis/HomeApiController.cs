@@ -1,4 +1,5 @@
-﻿using ElGitano.Models;
+﻿using ElGitano.DAL;
+using ElGitano.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,10 @@ namespace ElGitano.Apis
     public class HomeApiController : ApiController
     {
         [HttpGet]
-        public List<Producto> GetPublicaciones(int userId)
+        public List<Publicacion> GetPublicaciones()
         {
-            throw new NotImplementedException();
+            var HDataAccess = new HomeDataAccess();
+            return HDataAccess.GetPublicaciones();
         }
     }
 }

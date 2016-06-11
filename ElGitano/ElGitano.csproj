@@ -147,6 +147,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DAL\HomeDataAccess.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -158,9 +159,14 @@
     <Compile Include="Migrations\201606100306465_producto.Designer.cs">
       <DependentUpon>201606100306465_producto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606111941175_Publicacion.cs" />
+    <Compile Include="Migrations\201606111941175_Publicacion.Designer.cs">
+      <DependentUpon>201606111941175_Publicacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ElGitanoContext.cs" />
     <Compile Include="Models\Producto.cs" />
+    <Compile Include="Models\Publicacion.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -191,9 +197,12 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\knockout-3.4.0.debug.js" />
     <Content Include="Scripts\knockout-3.4.0.js" />
+    <Content Include="Scripts\knockout-postbox.js" />
+    <Content Include="Scripts\knockout-postbox.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="ViewModels\CommonViewModel.js" />
     <Content Include="ViewModels\HomeViewModel.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -225,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606100306465_producto.resx">
       <DependentUpon>201606100306465_producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606111941175_Publicacion.resx">
+      <DependentUpon>201606111941175_Publicacion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
