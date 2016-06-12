@@ -18,13 +18,14 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-
+    <script src="~/ViewModels/CommonViewModel.js"></script>
+    <script src="~/ViewModels/HomeViewModel.js"></script>
 </head>
 
-<body>
-   
+<body id="Home">
 
- 
+
+
     <div id="divisor"></div>
     <div id="top">
         <!--<img src="images.jpg" />-->
@@ -38,12 +39,27 @@
 
     </div>
     <div class="gridContainer clearfix"></div>
-        <div id="div1" class="fluid">
-            <div id="wrapper">
-                <!---- DESTACADOS -->
-                <!---- ARTICULOS -->
-
-                <section>
+    <div id="div1" class="fluid">
+        <div id="wrapper">
+            <!---- DESTACADOS -->
+            <!---- ARTICULOS -->
+            <!-- ko foreach: Publicaciones -->
+            <section>
+                <article id="column">
+                    <div id="foto">
+                        <img src="pesca.jpg" title="Pesca" alt="Pesca" />
+                    </div>
+                    <div id="fondo">
+                        <h2>
+                            Compro cañas de pescar
+                        </h2>
+                        <p class="zona">Saavedra, Buenos Aires</p>
+                        <p class="precio">$900</p>
+                    </div>
+                </article>
+            </section>
+            <!-- /ko -->
+            @*<section>
                     <article id="column">
                         <div id="foto">
                             <img src="pesca.jpg" title="Pesca" alt="Pesca" />
@@ -132,40 +148,32 @@
                             <p class="precio">$900</p>
                         </div>
                     </article>
-                </section>
+                </section>*@
 
-                <section>
-                    <article id="column">
-                        <div id="foto">
-                            <img src="pesca.jpg" title="Pesca" alt="Pesca" />
-                        </div>
-                        <div id="fondo">
-                            <h2>Compro cañas de pescar </h2>
-                            <p class="zona">Saavedra, Buenos Aires</p>
-                            <p class="precio">$900</p>
-                        </div>
-                    </article>
-                </section>
-
-
-            </div>
 
         </div>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script>
-            $("#showmenu").click(function (e) {
-                e.preventDefault();
-                $("#menu").toggleClass("show");
-            });
-            $("#menu a").click(function (event) {
-                event.preventDefault();
-                if ($(this).next('ul').length) {
-                    $(this).next().toggle('fast');
-                    $(this).children('i:last-child').toggleClass('fa-caret-down fa-caret-left');
-                }
-            });
-        </script>
+
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        $("#showmenu").click(function (e) {
+            e.preventDefault();
+            $("#menu").toggleClass("show");
+        });
+        $("#menu a").click(function (event) {
+            event.preventDefault();
+            if ($(this).next('ul').length) {
+                $(this).next().toggle('fast');
+                $(this).children('i:last-child').toggleClass('fa-caret-down fa-caret-left');
+            }
+        });
+
+        var Homevm = new HomeViewModel();
+        ko.applyBindings(Homevm, $("#Home")[0]);
+    </script>
 
 </body>
+
+
 
 </html>

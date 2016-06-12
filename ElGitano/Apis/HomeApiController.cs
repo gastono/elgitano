@@ -14,8 +14,17 @@ namespace ElGitano.Apis
         [HttpGet]
         public List<Publicacion> GetPublicaciones()
         {
-            var HDataAccess = new HomeDataAccess();
-            return HDataAccess.GetPublicaciones();
+            List<Publicacion> Publicaciones = new List<Publicacion>();
+            Producto producto = new Producto(){ ID = 1, Descripcion = "caña de pescar", ThumnailUrl = "path1", Url = "path2", UsuarioID = 1} ;
+            Producto producto2 = new Producto() { ID = 1, Descripcion = "caña de pescar", ThumnailUrl = "path1", Url = "path2", UsuarioID = 1 };
+           
+            Publicaciones.Add(new Publicacion { ID = 1, Producto = producto, ProductoID = 1 });
+            Publicaciones.Add(new Publicacion { ID = 1, Producto = producto2, ProductoID = 1 });
+
+            //var HDataAccess = new HomeDataAccess();
+            //return HDataAccess.GetPublicaciones();
+
+            return Publicaciones;
         }
     }
 }

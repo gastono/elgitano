@@ -22,8 +22,8 @@ var  Producto = function()
     self.ThumnailUrl = ko.observable();
 }
 
-var Puiblicacion = function ()
+var Publicacion = function ()
 {
     var self = this;
-    señf.Producto = new Producto();
+    self.Producto = ko.observable();
 }

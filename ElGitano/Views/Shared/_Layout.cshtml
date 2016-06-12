@@ -3,10 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/knockout-3.4.0.js"></script>
+    <script src="~/Scripts/knockout-postbox.js"></script>    
     <title>@ViewBag.Title</title>
    
 </head>
-<body>
+<body>   
     <!-- menu vertical -->
     <nav id="menu" class="left">
         <ul>
@@ -26,7 +28,7 @@
         <a href="#" id="showmenu"> <i class="fa fa-bars"></i> </a>
     </nav>
     <div id="header">
-    </div>
+    </div>   
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -38,5 +40,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    
 </body>
 </html>

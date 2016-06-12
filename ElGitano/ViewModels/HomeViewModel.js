@@ -5,11 +5,11 @@ var HomeViewModel = function ()
     var self = this;
 
     self.Publicaciones = ko.observableArray();
-
+    GetPublicaciones(self);
 }
 
-function GetItems(context)
-
+function GetPublicaciones(context)
+{
     var self = context;
 
     $.ajax({
@@ -20,10 +20,17 @@ function GetItems(context)
             self.Publicaciones.removeAll();
 
             $.each(data, function (index, value) {
-                var Producto = new Producto()
+                var pub = new Publicacion();
+                var prod = new Producto();
+                prod.ID(value.ID);
+                prod.UsuarioID(value.UsuarioID);
+                prod.Descripcion(value.Descripcion);
+                prod.Url(value.Url);
+                prod.ThumnailUrl(value.ThumnailUrl);
 
-                //crear el producto de la publciacion , colocar los valores obtenido desde el server
-                
+                pub.Producto(Producto);
+
+                self.Publicaciones.push(pub);
             });
 
         },
