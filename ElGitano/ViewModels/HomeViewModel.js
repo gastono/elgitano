@@ -21,14 +21,13 @@ function GetPublicaciones(context)
 
             $.each(data, function (index, value) {
                 var pub = new Publicacion();
-                var prod = new Producto();
-                prod.ID(value.ID);
-                prod.UsuarioID(value.UsuarioID);
-                prod.Descripcion(value.Descripcion);
-                prod.Url(value.Url);
-                prod.ThumnailUrl(value.ThumnailUrl);
-
-                pub.Producto(Producto);
+                pub.ID(value.ID);
+                
+                pub.Producto.ID(value.Producto.ID);
+                pub.Producto.UsuarioID(value.Producto.UsuarioID);
+                pub.Producto.Descripcion(value.Producto.Descripcion);
+                pub.Producto.Url(value.Producto.Url);
+                pub.Producto.ThumnailUrl(value.Producto.ThumnailUrl);
 
                 self.Publicaciones.push(pub);
             });

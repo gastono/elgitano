@@ -25,5 +25,6 @@ var  Producto = function()
 var Publicacion = function ()
 {
     var self = this;
-    self.Producto = ko.observable();
+    self.ID = ko.observable();
+    self.Producto = new Producto();
 }

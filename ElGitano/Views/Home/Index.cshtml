@@ -47,12 +47,10 @@
             <section>
                 <article id="column">
                     <div id="foto">
-                        <img src="pesca.jpg" title="Pesca" alt="Pesca" />
+                        <img data-bind="attr:{src: Producto.Url}" />
                     </div>
                     <div id="fondo">
-                        <h2>
-                            Compro cañas de pescar
-                        </h2>
+                        <h2><span data-bind="text: Producto.Descripcion()"></span></h2>
                         <p class="zona">Saavedra, Buenos Aires</p>
                         <p class="precio">$900</p>
                     </div>

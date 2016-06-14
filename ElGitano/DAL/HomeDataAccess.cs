@@ -13,7 +13,7 @@ namespace ElGitano.DAL
         {
             try
             {
-                var query = db.Publicaciones;
+                var query = db.Publicaciones.Include("Producto");
 
                 return query.ToList();
             }
