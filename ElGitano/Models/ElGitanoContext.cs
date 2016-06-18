@@ -20,6 +20,8 @@ namespace ElGitano.Models
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Publicacion> Publicaciones { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Subcategoria> Subcategorias { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

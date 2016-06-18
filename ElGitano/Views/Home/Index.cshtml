@@ -57,115 +57,11 @@
                 </article>
             </section>
             <!-- /ko -->
-            @*<section>
-                    <article id="column">
-                        <div id="foto">
-                            <img src="pesca.jpg" title="Pesca" alt="Pesca" />
-                        </div>
-                        <div id="fondo">
-                            <h2>Compro cañas de pescar </h2>
-                            <p class="zona">Saavedra, Buenos Aires</p>
-                            <p class="precio">$900</p>
-                        </div>
-                    </article>
-                </section>
-
-                <section>
-                    <article id="column">
-                        <div id="foto">
-                            <img src="pesca.jpg" title="Pesca" alt="Pesca" />
-                        </div>
-                        <div id="fondo">
-                            <h2>Compro cañas de pescar </h2>
-                            <p class="zona">Saavedra, Buenos Aires</p>
-                            <p class="precio">$900</p>
-                        </div>
-                    </article>
-                </section>
-
-                <section>
-                    <article id="column">
-                        <div id="foto">
-                            <img src="pesca.jpg" title="Pesca" alt="Pesca" />
-                        </div>
-                        <div id="fondo">
-                            <h2>Compro cañas de pescar </h2>
-                            <p class="zona">Saavedra, Buenos Aires</p>
-                            <p class="precio">$900</p>
-                        </div>
-                    </article>
-                </section>
-
-                <section>
-                    <article id="column">
-                        <div id="foto">
-                            <img src="pesca.jpg" title="Pesca" alt="Pesca" />
-                        </div>
-                        <div id="fondo">
-                            <h2>Compro cañas de pescar </h2>
-                            <p class="zona">Saavedra, Buenos Aires</p>
-                            <p class="precio">$900</p>
-                        </div>
-                    </article>
-                </section>
-
-                <section>
-                    <article id="column">
-                        <div id="foto">
-                            <img src="pesca.jpg" title="Pesca" alt="Pesca" />
-                        </div>
-                        <div id="fondo">
-                            <h2>Compro cañas de pescar </h2>
-                            <p class="zona">Saavedra, Buenos Aires</p>
-                            <p class="precio">$900</p>
-                        </div>
-                    </article>
-                </section>
-
-                <section>
-                    <article id="column">
-                        <div id="foto">
-                            <img src="pesca.jpg" title="Pesca" alt="Pesca" />
-                        </div>
-                        <div id="fondo">
-                            <h2>Compro cañas de pescar </h2>
-                            <p class="zona">Saavedra, Buenos Aires</p>
-                            <p class="precio">$900</p>
-                        </div>
-                    </article>
-                </section>
-
-                <section>
-                    <article id="column">
-                        <div id="foto">
-                            <img src="pesca.jpg" title="Pesca" alt="Pesca" />
-                        </div>
-                        <div id="fondo">
-                            <h2>Compro cañas de pescar </h2>
-                            <p class="zona">Saavedra, Buenos Aires</p>
-                            <p class="precio">$900</p>
-                        </div>
-                    </article>
-                </section>*@
-
-
         </div>
 
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script>
-        $("#showmenu").click(function (e) {
-            e.preventDefault();
-            $("#menu").toggleClass("show");
-        });
-        $("#menu a").click(function (event) {
-            event.preventDefault();
-            if ($(this).next('ul').length) {
-                $(this).next().toggle('fast');
-                $(this).children('i:last-child').toggleClass('fa-caret-down fa-caret-left');
-            }
-        });
-
         var Homevm = new HomeViewModel();
         ko.applyBindings(Homevm, $("#Home")[0]);
     </script>

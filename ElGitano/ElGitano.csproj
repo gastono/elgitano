@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Apis\HomeApiController.cs" />
+    <Compile Include="Apis\NewProductController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -146,7 +147,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewProductController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DAL\CategoriaDataAccess.cs" />
     <Compile Include="DAL\HomeDataAccess.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -163,10 +166,16 @@
     <Compile Include="Migrations\201606111941175_Publicacion.Designer.cs">
       <DependentUpon>201606111941175_Publicacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606181824429_catsubcat.cs" />
+    <Compile Include="Migrations\201606181824429_catsubcat.Designer.cs">
+      <DependentUpon>201606181824429_catsubcat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\ElGitanoContext.cs" />
     <Compile Include="Models\Producto.cs" />
     <Compile Include="Models\Publicacion.cs" />
+    <Compile Include="Models\Subcategoria.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -221,6 +230,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\NewProduct\LoadingProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -238,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606111941175_Publicacion.resx">
       <DependentUpon>201606111941175_Publicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606181824429_catsubcat.resx">
+      <DependentUpon>201606181824429_catsubcat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

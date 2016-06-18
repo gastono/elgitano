@@ -1,16 +1,12 @@
 ﻿var CommonViewModel = function ()
 {
     var self = this;   
-
-   
 }
-
 
 function EmptyProducto(context)
 {
     return new Producto();
 }
-
 
 var  Producto = function()
 {
@@ -27,4 +23,20 @@ var Publicacion = function ()
     var self = this;
     self.ID = ko.observable();
     self.Producto = new Producto();
+}
+
+var Categoria = function ()
+{
+    var self = this;
+    self.ID = ko.observable();
+    self.Descripcion = ko.observable();
+    self.SubCategorias = ko.observableArray()
+}
+
+var SubCategoria = function ()
+{
+    var self = this;
+    self.ID = ko.observable();
+    self.Descripcion = ko.observable();
+    self.CategoriaID = ko.observable();
 }
