@@ -29,9 +29,7 @@ var Categoria = function ()
 {
     var self = this;
     self.ID = ko.observable();
-    self.Descripcion = ko.observable();
-    self.SubCategorias = ko.observableArray()
-}
+    self.Descripcion = ko.observable();    }
 
 var SubCategoria = function ()
 {

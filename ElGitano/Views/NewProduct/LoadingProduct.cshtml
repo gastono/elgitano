@@ -5,6 +5,7 @@
 }
 
 <link href="~/Content/style.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
 <link href="~/Content/mobile.css" rel="stylesheet" />
 <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
@@ -12,5 +13,49 @@
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-<h2>LoadingProduct</h2>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<link href="~/Content/jquery.steps.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.steps.js"></script>
+<script src="~/ViewModels/NewProductViewModel.js"></script>
+<script src="~/ViewModels/CommonViewModel.js"></script>
 
+<div class="gridContainer clearfix"></div>
+
+<div id="vmContent">
+    <div id="tabs">
+        <h3>CATEGORIA</h3>
+        <section>
+            <div class="list-group">
+                <a href="#" class="list-group-item active">
+                    Cras justo odio
+                </a>
+                <!-- ko foreach: Categorias -->
+                <a href="#next" class="list-group-item" ><span data-bind="text:Descripcion()"></span></a>
+                <!-- /ko -->
+            </div>
+        </section>
+        <h3>SUBCATEGORIA</h3>
+        <section>
+            <p>Wonderful transition effects.</p>
+        </section>
+        <h3>DESCRIPCION</h3>
+        <section>
+            <p>The next and previous buttons help you to navigate through your content.</p>
+        </section>
+        <h3>SUBIR IMAGEN</h3>
+        <section>
+            <p>The next and previous buttons help you to navigate through your content.</p>
+        </section>
+    </div>
+</div>
+<script>
+    $("#tabs").steps({
+        headerTag: "h3",
+        bodyTag: "section",
+        transitionEffect: "slideLeft",
+        autoFocus: true
+    });
+
+    var Newvm = new NewProductViewModel();
+    ko.applyBindings(Newvm, $("#vmContent")[0]);
+</script>

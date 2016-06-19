@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace ElGitano.Apis
 {
-    public class NewProductController : ApiController
+    public class NewProductApiController : ApiController
     {
         [HttpGet]
         public List<Categoria> GetCategorias()
