@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "LoadingProduct";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -14,48 +13,49 @@
 <![endif]-->
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<link href="~/Content/jquery.steps.css" rel="stylesheet" />
-<script src="~/Scripts/jquery.steps.js"></script>
 <script src="~/ViewModels/NewProductViewModel.js"></script>
 <script src="~/ViewModels/CommonViewModel.js"></script>
 
 <div class="gridContainer clearfix"></div>
 
 <div id="vmContent">
-    <div id="tabs">
-        <h3>CATEGORIA</h3>
-        <section>
-            <div class="list-group">
-                <a href="#" class="list-group-item active">
-                    Cras justo odio
-                </a>
-                <!-- ko foreach: Categorias -->
-                <a href="#next" class="list-group-item" ><span data-bind="text:Descripcion()"></span></a>
-                <!-- /ko -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tabbable" id="tabs-832059">
+                    <span class="badge" data-bind="text:DescripcionCategoriaSelected()"></span>                    
+                    @*<ul class="nav nav-tabs">
+                        
+                        <li data-bind="css:{active : CategoriaVisibility }">
+                            <a href="#panel-Categorias" data-toggle="tab">Categorias</a>
+                        </li>
+                        <li data-bind="css:{active : SubCategoriaVisibility }">
+                            <a href="#panel-Subcategorias" data-toggle="tab">Sub Categorias</a>
+                        </li>
+                    </ul>*@
+                    <div class="tab-content">
+                        <div class="tab-pane active" data-bind="css:{active : CategoriaVisibility }" id="panel-Categorias">
+                            <div class="list-group">
+                                <!-- ko foreach: Categorias -->
+                                <a href="#" class="list-group-item"><span data-bind="text:Descripcion(), click: $parent.GetSubCategorias"></span></a>
+                                <!-- /ko -->
+                            </div>
+                        </div>
+                        <div class="tab-pane" data-bind="css:{active : SubCategoriaVisibility }" id="panel-Subcategorias">
+                            <div class="list-group">
+                            <!-- ko foreach: SubCategorias -->
+                            <a href="#" class="list-group-item"><span data-bind="text:Descripcion()"></span></a>
+                            <!-- /ko -->
+                        </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
-        <h3>SUBCATEGORIA</h3>
-        <section>
-            <p>Wonderful transition effects.</p>
-        </section>
-        <h3>DESCRIPCION</h3>
-        <section>
-            <p>The next and previous buttons help you to navigate through your content.</p>
-        </section>
-        <h3>SUBIR IMAGEN</h3>
-        <section>
-            <p>The next and previous buttons help you to navigate through your content.</p>
-        </section>
+        </div>
     </div>
 </div>
-<script>
-    $("#tabs").steps({
-        headerTag: "h3",
-        bodyTag: "section",
-        transitionEffect: "slideLeft",
-        autoFocus: true
-    });
 
+<script>
     var Newvm = new NewProductViewModel();
     ko.applyBindings(Newvm, $("#vmContent")[0]);
 </script>
