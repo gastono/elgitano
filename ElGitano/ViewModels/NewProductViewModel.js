@@ -18,6 +18,20 @@
         self.DescripcionCategoriaSelected(data.Descripcion);
     }
 
+    self.BtnSiguiente = function ()
+    {
+        self.CategoriaVisibility(false);
+
+        self.SubCategoriaVisibility(true);
+    }
+
+    self.BtnAtras = function () {       
+
+        self.SubCategoriaVisibility(false);
+
+        self.CategoriaVisibility(true);
+    }
+
     GetCategorias(self);
 
 }
@@ -47,6 +61,7 @@ function GetCategorias(context) {
     });
 }
 
+
 function GSubCategorias(data, context)
 {
     var self = context;
@@ -70,10 +85,7 @@ function GSubCategorias(data, context)
 
                 self.SubCategorias.push(subCat);
             });
-
-            self.CategoriaVisibility(false);
-
-            self.SubCategoriaVisibility(true);            
+                      
         },
         error: function (msj) {
             alert(msj);

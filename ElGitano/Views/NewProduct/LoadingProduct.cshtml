@@ -20,33 +20,61 @@
 
 <div id="vmContent">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="tabbable" id="tabs-832059">
-                    <span class="badge" data-bind="text:DescripcionCategoriaSelected()"></span>                    
-                    @*<ul class="nav nav-tabs">
-                        
-                        <li data-bind="css:{active : CategoriaVisibility }">
-                            <a href="#panel-Categorias" data-toggle="tab">Categorias</a>
-                        </li>
-                        <li data-bind="css:{active : SubCategoriaVisibility }">
-                            <a href="#panel-Subcategorias" data-toggle="tab">Sub Categorias</a>
-                        </li>
-                    </ul>*@
-                    <div class="tab-content">
-                        <div class="tab-pane active" data-bind="css:{active : CategoriaVisibility }" id="panel-Categorias">
-                            <div class="list-group">
-                                <!-- ko foreach: Categorias -->
-                                <a href="#" class="list-group-item"><span data-bind="text:Descripcion(), click: $parent.GetSubCategorias"></span></a>
-                                <!-- /ko -->
+        <div class="tabbable" id="tabs-448459">
+            <div class="tab-content">
+                <div class="tab-pane active" id="panel-533528" data-bind="css:{active : CategoriaVisibility }">
+                    <div class=" row">
+                        <div class="col-md-6">
+
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        Categorias
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="list-group">
+                                        <!-- ko foreach: Categorias -->
+                                        <a href="#" class="list-group-item"><span data-bind="text:Descripcion(), click: $parent.GetSubCategorias"></span></a>
+                                        <!-- /ko -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="tab-pane" data-bind="css:{active : SubCategoriaVisibility }" id="panel-Subcategorias">
-                            <div class="list-group">
-                            <!-- ko foreach: SubCategorias -->
-                            <a href="#" class="list-group-item"><span data-bind="text:Descripcion()"></span></a>
-                            <!-- /ko -->
+                        <div class="col-md-6">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        Sub-Categorias
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="list-group">
+                                        <!-- ko foreach: SubCategorias -->
+                                        <a href="#" class="list-group-item"><span data-bind="text:Descripcion()"></span></a>
+                                        <!-- /ko -->
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-primary btn-block" data-bind="click: BtnSiguiente">
+                                Siguiente
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="panel-280320" data-bind="css:{active : SubCategoriaVisibility }">
+                    <p>
+                        Howdy, I'm in Section 2.
+                    </p>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-primary btn-block" data-bind="click: BtnAtras">
+                                Atras
+                            </button>
                         </div>
                     </div>
                 </div>
