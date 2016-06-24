@@ -32,6 +32,33 @@
         self.CategoriaVisibility(true);
     }
 
+    self.BtnCrearPublicacion = function ()
+    {
+        var files = $("#inputFile").get(0).files;
+        var data = new FormData();
+        
+        for (i = 0; i < files.length; i++) {
+            data.append("file" + i, files[i]);
+
+            data.append("categoria", "categoriaseleccionada");
+            data.append("subcategoria", "subcategoria seleccionada");
+            data.append("descripcion", "descipcion");
+
+        $.ajax({
+            type: "POST",
+            url: "/api/NewProductApi/CrearPublicacion",
+            contentType: false,
+            processData: false,
+            data: data,
+            success: function (result) {
+                if (result) {
+                    alert('Archivos subidos correctamente');
+                    $("#inputFile").val('');
+                }
+            }
+        });
+    }
+
     GetCategorias(self);
 
 }

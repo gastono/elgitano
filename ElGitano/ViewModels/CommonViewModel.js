@@ -36,5 +36,11 @@ var SubCategoria = function ()
     var self = this;
     self.ID = ko.observable();
     self.Descripcion = ko.observable();
-    self.CategoriaID = ko.observable();
+    self.CategoriaID = ko.observable
+}
+
+var NuevaPublicacionRequest = function ()
+{
+    var self = this;
+    self.Categoria = ko.observable();
 }
