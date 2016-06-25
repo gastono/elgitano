@@ -1,4 +1,12 @@
-﻿var CommonViewModel = function ()
+﻿//CONSTANTS
+
+var CATSUBCAT = "CATSUBCAT";
+var DESCRIPCION = "DESCRIPCION";
+var UBICACION = "UBICACION";
+var IMAGENES = "IMAGENES";
+
+
+var CommonViewModel = function ()
 {
     var self = this;   
 }
