@@ -173,6 +173,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\ElGitanoContext.cs" />
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Models\Producto.cs" />
     <Compile Include="Models\Publicacion.cs" />
     <Compile Include="Models\Subcategoria.cs" />

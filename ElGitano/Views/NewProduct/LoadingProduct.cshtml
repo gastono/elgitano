@@ -15,6 +15,26 @@
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/ViewModels/NewProductViewModel.js"></script>
 <script src="~/ViewModels/CommonViewModel.js"></script>
+<style>
+    /*#uploader li {
+        list-style: none;
+    }
+
+    #uploader {
+        text-decoration: none;
+        color: #000;
+        margin: 10px;
+        width: 150px;
+        height: 150px;
+        border: 3px dashed #999;
+        background: #eee;
+        padding: 10px;
+        display: block;
+    }*/
+
+   
+
+</style>
 
 <div class="gridContainer clearfix"></div>
 
@@ -68,26 +88,35 @@
                 </div>
                 <div class="tab-pane" id="panel-280320" data-bind="css:{active : SubCategoriaVisibility }">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
 
-                            <div class="jumbotron">
-                                <h1>ASP.NET Web API - File Upload</h1>
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="">
                                 <div class="row">
                                     <div class="col-md-12" style="font-size:medium">
-                                        <div class="form-group">
-                                            <label class="col-md-2 control-label">Archivo:</label>
-                                            <div class="col-md-10">
-                                                <input id="inputFile" type="file" multiple="multiple" />
+                                        <div class="form-group">                                           
+                                            <div class="">
+                                             
+                                                <label for="file-input">
+                                                    <img src="http://stmedia.stimg.co/strib-sports-upload-color.png?w=150&h=150" style="cursor:pointer" />
+                                                </label>
+                                                <input id="file-input" style="display:none" type="file" multiple="multiple" />
                                             </div>
+                                          
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-offset-2 col-md-10">
-                                                <input type="submit" value="Crear Publicacion" id="btnUpload" data-bind="click: BtnCrearPublicacion" class="btn btn-default" />
+                                                <input type="submit" value="Cargar" id="btnUpload" data-bind="click: BtnCrearPublicacion" class="btn btn-default" />
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div> 
+                                </div>                             
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
                         </div>
                     </div>
                     <div class="row">
