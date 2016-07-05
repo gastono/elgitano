@@ -63,6 +63,10 @@ namespace ElGitano.Apis
 
                 string productDir = directorioImagenesFisico + "\\" + usuario + "\\" + titulo;
 
+                string thumbnailUrl = "\\Images\\"+usuario+"\\Thumbnails\\"+ titulo;
+
+                string imgUrl = "\\Images\\" + usuario + "\\"+titulo;
+
                 string thumbnailDir = directorioImagenesFisico + "\\" + usuario + "\\Thumbnails" + "\\" + titulo;
 
                 //creo los directorios si no existen
@@ -92,16 +96,24 @@ namespace ElGitano.Apis
                         var imagenPath = productDir + "\\" + cantActualImagenesFormateada + ".jpg";
 
                         var thumbnailPath = thumbnailDir + "\\" + cantActualImagenesFormateada + ".jpg";
+                        
+                        thumbnailUrl = thumbnailUrl + "\\" + cantActualImagenesFormateada + ".jpg";
+
+                        imgUrl = imgUrl + "\\" + cantActualImagenesFormateada + ".jpg";
 
                         var postedFile = request.Files[0];
 
-                        var filePath = HttpContext.Current.Server.MapPath(root + string.Format("{0}", postedFile.FileName));
+                        var filePath = root + string.Format("{0}", postedFile.FileName);
 
+                        postedFile.SaveAs(filePath);
+                      
                         resizeImagetoThumbnail(filePath).Save(thumbnailPath);
 
                         System.IO.File.Move(filePath, imagenPath);
 
-                        return new ElGitano.Models.Image() { ThumnailUrl = thumbnailPath, Url = imagenPath };
+
+
+                        return new ElGitano.Models.Image() { ThumnailUrl = thumbnailUrl, Url = imgUrl };
                 }
                 else
                 {

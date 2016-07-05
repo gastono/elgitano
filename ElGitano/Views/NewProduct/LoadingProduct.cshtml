@@ -31,9 +31,6 @@
         padding: 10px;
         display: block;
     }*/
-
-   
-
 </style>
 
 <div class="gridContainer clearfix"></div>
@@ -88,35 +85,47 @@
                 </div>
                 <div class="tab-pane" id="panel-280320" data-bind="css:{active : SubCategoriaVisibility }">
                     <div class="row">
-                        <div class="col-md-6">
-
-                        </div>
-                        <div class="col-md-6">
-
-                            <div class="">
-                                <div class="row">
-                                    <div class="col-md-12" style="font-size:medium">
-                                        <div class="form-group">                                           
-                                            <div class="">
-                                             
-                                                <label for="file-input">
-                                                    <img src="http://stmedia.stimg.co/strib-sports-upload-color.png?w=150&h=150" style="cursor:pointer" />
-                                                </label>
-                                                <input id="file-input" style="display:none" type="file" multiple="multiple" />
-                                            </div>
-                                          
+                        <div id="div1" class="fluid">
+                           
+                          
+                            <div id="wrapper">
+                                <!-- ko foreach: InputFiles -->
+                                <section>
+                                    <article id="column">
+                                        <label for="file-input">
+                                            <img data-bind="attr:{src: ThumnailUrl}" />
+                                        </label>
+                                        <div id="fondo">
+                                            <input id="file-input" style="display:none" type="file" multiple="multiple" />
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-md-offset-2 col-md-10">
-                                                <input type="submit" value="Cargar" id="btnUpload" data-bind="click: BtnCrearPublicacion" class="btn btn-default" />
+                                    </article>
+                                </section>
+                                <div>
+                                    <input type="submit" value="Cargar" id="btnUpload" data-bind="click: $parent.BtnCargarPublicacion" class="btn btn-default" />
+                                </div>
+                                <!-- /ko -->
+                            </div>
+                            @*<div class="">
+                                    <div class="row">
+                                        <div class="col-md-12" style="font-size:medium">
+                                            <div class="form-group">
+                                                <div class="">
+
+                                                    <label for="file-input">
+                                                        <img src="http://stmedia.stimg.co/strib-sports-upload-color.png?w=150&h=150" style="cursor:pointer" />
+                                                    </label>
+                                                    <input id="file-input" style="display:none" type="file" multiple="multiple" />
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <input type="submit" value="Cargar" id="btnUpload" data-bind="click: BtnCargarPublicacion" class="btn btn-default" />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>                             
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-
+                                </div>*@
                         </div>
                     </div>
                     <div class="row">

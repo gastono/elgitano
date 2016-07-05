@@ -4,6 +4,8 @@ var CATSUBCAT = "CATSUBCAT";
 var DESCRIPCION = "DESCRIPCION";
 var UBICACION = "UBICACION";
 var IMAGENES = "IMAGENES";
+var DEFAULTTHUMBNAILIMAGE = "http://stmedia.stimg.co/strib-sports-upload-color.png?w=150&h=150";
+var DEFAULTFILEINPUTQUANTITY = 3;
 
 
 var CommonViewModel = function ()
@@ -51,4 +53,11 @@ var NuevaPublicacionRequest = function ()
 {
     var self = this;
     self.Categoria = ko.observable();
+}
+
+var Image = function ()
+{
+    var self = this;
+    self.Url = ko.observable();
+    self.ThumnailUrl = ko.observable(DEFAULTTHUMBNAILIMAGE);
 }

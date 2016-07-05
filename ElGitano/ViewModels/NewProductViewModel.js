@@ -20,6 +20,8 @@
 
     self.Descripcion = ko.observable(); //Descripcion escrita del producto
 
+    self.InputFiles = ko.observableArray();
+
     self.GetSubCategorias = function (data) {
         GSubCategorias(data, self);
     }
@@ -66,36 +68,43 @@
                 tab = DESCRIPCION;
                 break;
         }
-    }
+    }    
 
-    self.BtnCrearPublicacion = function () {
-        var files = $("#inputFile").get(0).files;
-        var data = new FormData();
+    self.BtnCargarPublicacion = function (data,context) {
+
+        var files = $("#file-input").get(0).files;
+
+        var form = new FormData();
 
         for (i = 0; i < files.length; i++) {
-            data.append("file" + i, files[i]);
 
-            data.append("categoria", "categoriaseleccionada");
-            data.append("subcategoria", "subcategoria seleccionada");
-            data.append("descripcion", "descipcion");
+            form.append("file" + i, files[i]);
+
+            form.append("UsuarioId", "1");
+
+            form.append("Titulo", "CanadePescar");
 
             $.ajax({
                 type: "POST",
-                url: "/api/NewProductApi/CrearPublicacion",
-                contentType: false,
+                url: "/api/NewProductApi/ProcesarImagen",
                 processData: false,
-                data: data,
-                success: function (result) {
-                    if (result) {
-                        alert('Archivos subidos correctamente');
-                        $("#inputFile").val('');
-                    }
+                contentType: false,               
+                data: form,
+                success: function (resp) {
+
+                    $("#inputFile").val('');           
+
+                    data.Url(resp.Url);
+
+                    data.ThumnailUrl(resp.ThumnailUrl)
                 }
             });
         }
     }
 
     GetCategorias(self);
+
+    AddInputFiles(self,DEFAULTFILEINPUTQUANTITY);
 }
 
 function GetCategorias(context) {
@@ -123,6 +132,16 @@ function GetCategorias(context) {
     });
 }
 
+//agrega imputfiles para ingresar imagenes a la publicacion
+function AddInputFiles(context, quant)
+{
+    var self = context;
+
+    for (var i = 0; i < quant; i++) {        
+
+        self.InputFiles.push(new Image());
+    }
+}
 
 function GSubCategorias(data, context) {
     var self = context;
@@ -152,6 +171,4 @@ function GSubCategorias(data, context) {
             alert(msj);
         }
     });
-
-
 }
