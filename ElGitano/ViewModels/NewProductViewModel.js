@@ -14,6 +14,8 @@
 
     self.ImagesUploadVisibility = ko.observable(false);
 
+    self.DescripcionVisibility = ko.observable(false);
+
     self.IdCategoriaSelected = ko.observable(); //categoria seleccionada
 
     self.IdSubCategoriaSelected = ko.observable(); //subcategoria seleccionada
@@ -39,34 +41,33 @@
         switch (tab) {
             case CATSUBCAT:
                 self.CategoriaVisibility(false);
-                self.SubCategoriaVisibility(true);
+                self.DescripcionVisibility(true);
                 self.ImagesUploadVisibility(false);
                 tab = DESCRIPCION;
                 break;
             case DESCRIPCION:
-                self.SubCategoriaVisibility(false);
-                self.ImagesUploadVisibility(true);
                 self.CategoriaVisibility(false);
+                self.DescripcionVisibility(false);
+                self.ImagesUploadVisibility(true);               
                 tab = IMAGENES;
                 break;
         }
     }
 
     self.BtnAtras = function () {
-
         switch (tab) {
             case DESCRIPCION:
-                self.SubCategoriaVisibility(false);
+                self.DescripcionVisibility(false);
                 self.ImagesUploadVisibility(false);
                 self.CategoriaVisibility(true);
                 tab = CATSUBCAT;
                 break;
             case IMAGENES:
                 self.ImagesUploadVisibility(false);
-                self.SubCategoriaVisibility(true);
-                self.SubCategoriaVisibility(false);
+                self.CategoriaVisibility(false);
+                self.DescripcionVisibility(true);
                 tab = DESCRIPCION;
-                break;
+                break;            
         }
     }    
 
