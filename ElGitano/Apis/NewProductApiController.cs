@@ -59,15 +59,15 @@ namespace ElGitano.Apis
 
                 var usuario = request.Params["UsuarioId"];
 
-                var titulo = request.Params["Titulo"];
+                var productId = "0";//request.Params["Titulo"];
 
-                string productDir = directorioImagenesFisico + "\\" + usuario + "\\" + titulo;
+                string productDir = directorioImagenesFisico + "\\" + usuario + "\\" + productId;
 
-                string thumbnailUrl = "\\Images\\"+usuario+"\\Thumbnails\\"+ titulo;
+                string thumbnailUrl = "\\Images\\"+usuario+"\\Thumbnails\\"+ productId;
 
-                string imgUrl = "\\Images\\" + usuario + "\\"+titulo;
+                string imgUrl = "\\Images\\" + usuario + "\\"+productId;
 
-                string thumbnailDir = directorioImagenesFisico + "\\" + usuario + "\\Thumbnails" + "\\" + titulo;
+                string thumbnailDir = directorioImagenesFisico + "\\" + usuario + "\\Thumbnails" + "\\" + productId;
 
                 //creo los directorios si no existen
 
@@ -164,6 +164,61 @@ namespace ElGitano.Apis
             }
 
             return (System.Drawing.Image)(new Bitmap(img, defaultThumbnailSize));
+        }
+
+        private void DeleteFilesAndDirectories(DirectoryInfo di)
+        {
+            foreach (FileInfo file in di.GetFiles())
+            {
+                file.Delete();
+            }
+            foreach (DirectoryInfo dir in di.GetDirectories())
+            {
+                dir.Delete(true);
+            }
+        }
+
+        public IHttpActionResult CancelarPublicacion(int idProducto, int idUsuario)
+        {
+            string directorioImagenesFisico = HttpContext.Current.Server.MapPath("~/Images/");
+
+            string rootDirectory = HttpContext.Current.Server.MapPath("~");
+
+            try
+            {
+                string productDir = directorioImagenesFisico + "\\" + idUsuario + "\\" + idProducto;
+
+                string thumbnailDir = directorioImagenesFisico + "\\" + idUsuario + "\\Thumbnails" + "\\" + idProducto;
+
+                DirectoryInfo prodDirInfo = new DirectoryInfo(productDir);
+
+                DirectoryInfo thumnailDirInfo = new DirectoryInfo(thumbnailDir);
+
+                DeleteFilesAndDirectories(prodDirInfo);
+
+                DeleteFilesAndDirectories(thumnailDirInfo);
+
+                return Ok(true);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+
+        }
+
+        public IHttpActionResult ConfirmarPublicacion(int idProducto, int idUsuario)
+        {
+            //Guardar en la base de datos todos los datos de la publicacion:
+            //Categoria
+            //Subcategoria
+            //Descripcion
+            //Titulo
+            //Path de Imagenes
+
+            throw new NotImplementedException();
+ 
         }
 
     }

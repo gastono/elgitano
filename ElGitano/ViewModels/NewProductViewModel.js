@@ -103,6 +103,15 @@
         }
     }
 
+    window.onbeforeunload = function (e) {
+        return 'Dialog text here.';
+    };
+
+    window.onunload = function (e)
+    {
+
+    }
+
     GetCategorias(self);
 
     AddInputFiles(self,DEFAULTFILEINPUTQUANTITY);
