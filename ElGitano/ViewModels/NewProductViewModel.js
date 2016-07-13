@@ -25,6 +25,7 @@
     self.InputFiles = ko.observableArray();
 
     self.GetSubCategorias = function (data) {
+        self.IdCategoriaSelected(data.ID()); // obtengo la categoria seleccionada
         GSubCategorias(data, self);
     }
 
@@ -34,7 +35,7 @@
     }
 
     self.GuardarSubCategoria = function (data) {
-        self.IdSubCategoriaSelected(data.ID);
+        self.IdSubCategoriaSelected(data.ID); //obtengo la subcategoria seleccionada
     }
 
     self.BtnSiguiente = function () {
@@ -134,6 +135,37 @@ function GetCategorias(context) {
 
                 self.Categorias.push(cat);
             });
+
+        },
+        error: function (msj) {
+            alert(msj);
+        }
+    });
+}
+
+function ConfirmarPublicacion(context)
+{
+    var self = context;
+
+    var request = new ConfirmarPublicacionRequest();
+
+    request.CategoriaId(self.IdCategoriaSelected());
+
+    request.SubCategoriaId(self.IdSubCategoriaSelected());
+
+    request.Comentario(self.Comentario());
+
+    request.Titulo(self.Titulo());
+
+    request.ProductoId(NUEVOPRODUCTOID);
+
+    $.ajax({
+        url: "/api/NewProductApi/ConfirmarPublicacion",
+        type: "POST",
+        data: request,
+        success: function (data) {
+            
+
 
         },
         error: function (msj) {

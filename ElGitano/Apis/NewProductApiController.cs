@@ -1,5 +1,6 @@
 ﻿using ElGitano.DAL;
 using ElGitano.Models;
+using ElGitano.Requests;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -208,14 +209,9 @@ namespace ElGitano.Apis
 
         }
 
-        public IHttpActionResult ConfirmarPublicacion(int idProducto, int idUsuario)
+        public IHttpActionResult ConfirmarPublicacion(NuevaPublicacionRequest request)
         {
-            //Guardar en la base de datos todos los datos de la publicacion:
-            //Categoria
-            //Subcategoria
-            //Descripcion
-            //Titulo
-            //Path de Imagenes
+            
 
             throw new NotImplementedException();
  

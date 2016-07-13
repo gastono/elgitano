@@ -7,6 +7,11 @@ namespace ElGitano.Requests
 {
     public class NuevaPublicacionRequest
     {
-        public int Categoria { get; set; }
+        public int CategoriaId { get; set; }
+        public int SubCategoriaId { get; set; }
+        public int UsuarioId { get; set; }
+        public int ProductoId { get; set; }
+        public string Comentario { get; set; }
+        public string Titulo { get; set; }
     }
 }
