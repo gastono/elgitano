@@ -151,6 +151,7 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DAL\CategoriaDataAccess.cs" />
     <Compile Include="DAL\HomeDataAccess.cs" />
+    <Compile Include="DAL\NewProductDataAccess.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -169,6 +170,14 @@
     <Compile Include="Migrations\201606181824429_catsubcat.cs" />
     <Compile Include="Migrations\201606181824429_catsubcat.Designer.cs">
       <DependentUpon>201606181824429_catsubcat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607140200191_cambioproductoeimagenes.cs" />
+    <Compile Include="Migrations\201607140200191_cambioproductoeimagenes.Designer.cs">
+      <DependentUpon>201607140200191_cambioproductoeimagenes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607140217590_algunaspropertiesproductos.cs" />
+    <Compile Include="Migrations\201607140217590_algunaspropertiesproductos.Designer.cs">
+      <DependentUpon>201607140217590_algunaspropertiesproductos.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -257,6 +266,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606181824429_catsubcat.resx">
       <DependentUpon>201606181824429_catsubcat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607140200191_cambioproductoeimagenes.resx">
+      <DependentUpon>201607140200191_cambioproductoeimagenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607140217590_algunaspropertiesproductos.resx">
+      <DependentUpon>201607140217590_algunaspropertiesproductos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -209,11 +209,34 @@ namespace ElGitano.Apis
 
         }
 
+        [HttpPost]
         public IHttpActionResult ConfirmarPublicacion(NuevaPublicacionRequest request)
         {
-            
+            var NPDataAccess = new NewProductDataAccess();
 
-            throw new NotImplementedException();
+            Producto producto = new Producto();
+
+            producto.Descripcion = request.Comentario;
+
+            producto.Titulo = request.Titulo;
+
+            producto.CategoriaID = request.CategoriaId;
+
+            producto.SubcategoriaID = request.SubCategoriaId;
+            
+            //obtener todas las urls del producto
+
+            try
+            {
+                NPDataAccess.ConfirmarPublicacion(producto);
+
+                return Ok(true);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }        
  
         }
 
