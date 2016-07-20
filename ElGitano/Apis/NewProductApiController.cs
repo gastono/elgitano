@@ -43,16 +43,16 @@ namespace ElGitano.Apis
 
             string root = HttpContext.Current.Server.MapPath("~/App_Temp/");
 
-            if (!Directory.Exists(root))
+            if (!Directory.Exists(root))//directorio temporal
             {
                 Directory.CreateDirectory(root);
             }
 
-            string directorioImagenesFisico = HttpContext.Current.Server.MapPath("~/Images/");
+            string directorioImagenesFisico = HttpContext.Current.Server.MapPath("~/Images/"); //directorio de imagenes
 
             string rootDirectory = HttpContext.Current.Server.MapPath("~");
 
-            string urlImagenes = this.Url.Content("~/Images/");
+            string urlImagenes = this.Url.Content("~/Images/");//url imagenes
 
             try
             {
@@ -62,45 +62,66 @@ namespace ElGitano.Apis
 
                 var productId = "0";//request.Params["Titulo"];
 
-                string productDir = directorioImagenesFisico + "\\" + usuario + "\\" + productId;
+                 
+                // Estructura: 
+                //  Images
+                //    |
+                // UsuarioId
+                //    |_ _ _ ProductoID
+                //             |_ _ _ _ _ Img_01
+                //                          |_ _ _ Original
+                //                          |_ _ _ Thumnail
 
-                string thumbnailUrl = "\\Images\\"+usuario+"\\Thumbnails\\"+ productId;
+                //url directorio productos
+                string RFDirectorioProducto = directorioImagenesFisico + "\\" + usuario + "\\" + productId; // directorio producto images-usuario-producto (correcto)
+                string URLDirectorioProducto = "\\Images\\" + usuario + "\\" + productId; // url producto, images-usuario-producto (correcto)
 
-                string imgUrl = "\\Images\\" + usuario + "\\"+productId;
+                //ruta fisica directorio imagen original producto
+                //url directorio imagen original producto
+                string RFDirectorioImgOriginal = directorioImagenesFisico + "\\" + usuario + "\\" + productId + "\\" + "img_{0}" + "\\Original" + "\\";
+                string URLDirectorioImgOriginal = "\\Images\\" + usuario + "\\" + productId + "\\" + "img_{0}" + "\\Original" + "\\";
 
-                string thumbnailDir = directorioImagenesFisico + "\\" + usuario + "\\Thumbnails" + "\\" + productId;
+                //ruta fisica directorio thumbnail producto
+                //url directorio thumbnail producto
+                string RFDirectorioThumbnail = directorioImagenesFisico + "\\" + usuario + "\\" + productId +"\\"+"img_{0}"+ "\\Thumbnail" + "\\";
+                string URLDirectorioThumbnauk = "\\Images\\" + usuario + "\\" + productId + "\\" + "img_{0}" + "\\Thumbnail" + "\\";
 
-                //creo los directorios si no existen
+                //-- Se crea el directorio del producto
 
-                if (!Directory.Exists(productDir))
+                if (!Directory.Exists(RFDirectorioProducto))
                 {
-                    Directory.CreateDirectory(productDir);
+                    Directory.CreateDirectory(RFDirectorioProducto);
                 }
-
-                if (!Directory.Exists(thumbnailDir))
-                {
-                    Directory.CreateDirectory(thumbnailDir);
-                }
-
-                int cantActualImagenes = 0;
+                
+                //Inicializacion de cantidad de directorios
+                int cantDirectorios = 0;
 
                 //creo los archivos en sus directorios especificos
 
                 if (request.Files.Count > 0)
-                {                   
-                        cantActualImagenes = Directory.GetFiles(productDir).Length;
+                {       
+                        //cuento la cantidad de directorios para asignar el numero correspondiente
+                        cantDirectorios = Directory.GetDirectories(RFDirectorioProducto).Length;
+                       
+                        //incremento el contador
+                        cantDirectorios++;
 
-                        cantActualImagenes++;
+                        //string de nombre de directorio nuevo
+                        var cantActualDirectoriosFormateada = String.Format("{0:00}", cantDirectorios);
 
-                        var cantActualImagenesFormateada = String.Format("{0:00}", cantActualImagenes);
+                        //rutas imagen original de producto
+                        var RFImagenOriginal = string.Format(RFDirectorioImgOriginal, cantActualDirectoriosFormateada);
+                        RFImagenOriginal += string.Format("img_{0:00}.jpg", cantDirectorios);
 
-                        var imagenPath = productDir + "\\" + cantActualImagenesFormateada + ".jpg";
-
-                        var thumbnailPath = thumbnailDir + "\\" + cantActualImagenesFormateada + ".jpg";
+                        var URLImagenOriginal = string.Format(URLDirectorioImgOriginal, cantActualDirectoriosFormateada);
+                        URLImagenOriginal += string.Format("img_{0:00}.jpg", cantDirectorios);
                         
-                        thumbnailUrl = thumbnailUrl + "\\" + cantActualImagenesFormateada + ".jpg";
+                        //rutas thumbnail
+                        var RFThumbnail = string.Format(RFDirectorioThumbnail, cantActualDirectoriosFormateada);
+                        RFThumbnail += string.Format("img_{0:00}.jpg", cantDirectorios);
 
-                        imgUrl = imgUrl + "\\" + cantActualImagenesFormateada + ".jpg";
+                        var URLThumbnail = string.Format(URLDirectorioThumbnauk, cantActualDirectoriosFormateada);
+                        URLThumbnail += string.Format("img_{0:00}.jpg", cantDirectorios);
 
                         var postedFile = request.Files[0];
 
@@ -108,13 +129,11 @@ namespace ElGitano.Apis
 
                         postedFile.SaveAs(filePath);
                       
-                        resizeImagetoThumbnail(filePath).Save(thumbnailPath);
+                        resizeImagetoThumbnail(filePath).Save(RFThumbnail);
 
-                        System.IO.File.Move(filePath, imagenPath);
+                        System.IO.File.Move(filePath, RFImagenOriginal);
 
-
-
-                        return new ElGitano.Models.Image() { ThumnailUrl = thumbnailUrl, Url = imgUrl };
+                        return new ElGitano.Models.Image() { ThumnailUrl = URLThumbnail, Url = URLImagenOriginal };
                 }
                 else
                 {
@@ -223,8 +242,8 @@ namespace ElGitano.Apis
             producto.CategoriaID = request.CategoriaId;
 
             producto.SubcategoriaID = request.SubCategoriaId;
-            
-            //obtener todas las urls del producto
+
+            producto.Imagenes = request.Imagenes;
 
             try
             {

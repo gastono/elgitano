@@ -59,6 +59,7 @@ var NuevaPublicacionRequest = function ()
 var Image = function ()
 {
     var self = this;
+    self.ID = ko.observable();
     self.Url = ko.observable();
     self.ThumnailUrl = ko.observable(DEFAULTTHUMBNAILIMAGE);
 }
@@ -74,5 +75,6 @@ var ConfirmarPublicacionRequest = function ()
     self.Titulo = ko.observable();
     self.CategoriaId = ko.observable();
     self.SubCategoriaId = ko.observable();
+    self.Imagenes = ko.observableArray();
 
 }

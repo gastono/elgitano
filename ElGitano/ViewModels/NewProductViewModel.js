@@ -159,6 +159,11 @@ function ConfirmarPublicacion(context)
 
     request.ProductoId(NUEVOPRODUCTOID);
 
+    ko.utils.arrayForEach(self.InputFiles(), function (image)
+    {
+        request.Imagenes.push(image);
+    });
+
     $.ajax({
         url: "/api/NewProductApi/ConfirmarPublicacion",
         type: "POST",
